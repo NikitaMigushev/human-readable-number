@@ -5,6 +5,12 @@ const hundred = 'hundred';
 
 module.exports = function toReadable(number) {
     let numberToString = number.toString().split('');
-    let result = `${units[numberToString[0] - 1]} ${hundred} ${tens[numberToString[1] - 1]} ${units[numberToString[2] - 1]}`
-    return result;
+    if (numberToString[2] === 0) {
+        let result = `${units[numberToString[0] - 1]} ${hundred} ${tens[numberToString[1] - 1]}`
+        return result;
+
+    } else {
+        let result = `${units[numberToString[0] - 1]} ${hundred} ${tens[numberToString[1] - 1]} ${units[numberToString[2] - 1]}`
+        return result;
+    }
 }
